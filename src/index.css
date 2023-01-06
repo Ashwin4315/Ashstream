@@ -68,3 +68,13 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background-color:#222222;
 }
+.licon{
+
+  color: red;
+  width: 3rem;
+}
+.loader{
+  width: 100%;
+  height: 100vh;
+  background-color: #222222;
+}

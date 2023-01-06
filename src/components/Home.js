@@ -1,7 +1,8 @@
 import styles from "./Home.module.css";
 import Flex from "./Flex";
 import MoviesList from "./MovieList";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import Loader from "./Loader";
 import News from "./News";
 
 function Home() {
@@ -13,7 +14,7 @@ function Home() {
 
 
 
-    const fetchMoviesHandler = useCallback(async () => {
+    const fetchanime = useCallback(async () => {
         setIsLoading(true);
         setError(null);
 
@@ -43,8 +44,8 @@ function Home() {
 
     useEffect(() => {
         console.log("heloo")
-        fetchMoviesHandler();
-    }, [fetchMoviesHandler]);
+        fetchanime();
+    }, [fetchanime]);
     let content = <p>Found no movies.</p>;
     let content2 = <p>Found no movies.</p>;
 
@@ -59,8 +60,8 @@ function Home() {
     }
 
     if (isLoading) {
-        content = <p>Loading...</p>;
-        content2 = <p>Loading...</p>;
+        content = <Loader/>;
+        content2 = <Loader/>;
     }
 
     const loadmore = async () => {

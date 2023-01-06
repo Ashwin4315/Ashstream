@@ -4,7 +4,7 @@ import { useState, useEffect,useCallback} from 'react';
 
 function News() {
     const [news, setnews] = useState([]);
-    const fetchMoviesHandler = useCallback(async () => {
+    const fetchanime = useCallback(async () => {
        
 
         try {
@@ -27,8 +27,8 @@ function News() {
 
     useEffect(() => {
         console.log("heloo")
-        fetchMoviesHandler();
-    }, [fetchMoviesHandler]);
+        fetchanime();
+    }, [fetchanime]);
     
 
     return (
