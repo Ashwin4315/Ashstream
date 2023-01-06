@@ -1,0 +1,67 @@
+.box{
+  width: 10rem;
+  height: 22rem;
+  overflow-y:scroll ;
+  display: flex;
+  flex-direction: column;
+  background-color: #222222;
+  cursor: pointer;
+}
+.img{
+  width: 10rem;
+  height: 17rem;
+}
+
+h3{
+  font-size: 1rem;
+  text-align: center;
+  color:#E5374D ;
+}
+.box:hover{
+  transform: scale(1.05);
+ 
+transition: 0.5s;}
+p{
+  font-size: 0.8rem;
+  text-align: center;
+  color:aliceblue ;
+  font-weight: bold;
+}
+.box::-webkit-scrollbar {
+  width: 0.1em;
+}
+ 
+.box::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+}
+ 
+.box::-webkit-scrollbar-thumb {
+  background-color:#bfb9b9;
+}
+
+@media only screen and (max-width: 600px) {
+  .box{
+    width: 8rem;
+    height: 22rem;           ;
+    display: flex;
+    flex-direction: column;
+    background-color: #222222;
+  }
+  .img{
+    width: 8rem;
+    height: auto;
+  }
+}
+@media only screen and (max-width: 490px) {
+  .box{
+    width: 10rem;
+    height: 22rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #222222;
+  }
+  .img{
+    width: 8rem;
+    height: auto;
+  }
+}

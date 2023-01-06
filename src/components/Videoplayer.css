@@ -1,0 +1,14 @@
+.player-wrapper {
+    width: 60%;
+    height: 33rem;
+  }
+
+  .iframe{
+    width: 100%;
+    height:100%;
+  }
+  .video{
+    display: flex;
+    justify-content: center;
+  }
+ 

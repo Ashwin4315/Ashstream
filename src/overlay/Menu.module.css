@@ -1,0 +1,25 @@
+.container{
+    position:absolute;
+    display: flex;
+    top:3rem;
+    right: 0;
+    width: 25%;
+    height: 20%;
+    background-color:black ;
+    padding : 0rem 0.5rem;
+    z-index: 99;
+}
+
+.links{
+    display: flex;
+    flex-direction: column;
+    
+}
+.links li{
+    cursor: pointer;
+    border-bottom:1px solid  #E5374D;
+    margin-top:1rem ;
+}
+.links li:hover{
+    color: #E5374D;
+}
