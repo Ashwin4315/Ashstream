@@ -1,105 +1,69 @@
+import { useState } from 'react';
 import { useParams } from "react-router-dom";
+import useGetdetail from "../hooks/useGetdetail";
+import useGetstream from "../hooks/useGetstream";
 import Videoplayer from "./Videoplayer";
-import { useState, useEffect, useCallback } from 'react';
 import styles from "./Detail.module.css"
+
 
 function Detail() {
 
-
     const [no, setno] = useState(1)
-    const [news, setnews] = useState([]);
-    const [detail, setdetail] = useState([]);
     const { id } = useParams();
-
-
     const link = id.slice(1, id.length)
+     
+    const stream =useGetstream(link,no)
+    const detail =useGetdetail(link)
 
-    console.log(link)
-    const fetchMoviesHandler = useCallback(async () => {
+    console.log(detail)
 
+    let count = detail.totalEpisodes;
 
-        try {
-            console.log(link)
-            const options = {
-                method: 'GET',
-                headers: {
-                    'X-RapidAPI-Key': '57439d4706msh640c83a58183221p11da97jsn0e273c3e369e',
-                    'X-RapidAPI-Host': 'gogoanime2.p.rapidapi.com'
-                }
-            };
-
-
-            const response = await fetch(`https://gogoanime2.p.rapidapi.com/vidcdn/watch/${link}-episode-${no}`, options)
-
-            if (!response.ok) {
-                throw new Error('Something went wrong!');
-            }
-
-            const data = await response.json();
-            const info = data.Referer
-
-            console.log(info)
-
-
-            setnews(info);
-        } catch (error) {
+    function array(count) {
+        let x = [];
+        for (let i = 1; i <= count; i++) {
+            x[i] = i;
         }
-    }, [link, no]);
+        return x
+    }
 
-    useEffect(() => {
-        console.log("heloo")
-        fetchMoviesHandler();
-    }, [fetchMoviesHandler]);
+    let button = array(count)
 
 
 
-    const getinfo = useCallback(async () => {
-
-
-        try {
-            console.log(link)
-
-            const options = {
-                method: 'GET',
-                headers: {
-                    'X-RapidAPI-Key': '57439d4706msh640c83a58183221p11da97jsn0e273c3e369e',
-                    'X-RapidAPI-Host': 'gogoanime2.p.rapidapi.com'
-                }
-            };
-
-
-            const response = await fetch('https://gogoanime2.p.rapidapi.com/anime-details/overlord-iv', options)
-
-            if (!response.ok) {
-                throw new Error('Something went wrong!');
-            }
-
-            const data = await response.json();
-
-            console.log(data)
-
-
-            setdetail(data);
-        } catch (error) {
-        }
-    }, [link]);
-
-
-
-    useEffect(() => {
-        console.log("heloo")
-        getinfo();
-    }, [getinfo]);
-
-
-    
 
     return (
 
         <div className={styles.con}>
-            <Videoplayer url={news} />
+            <Videoplayer url={stream} />
+
             <div className={styles.info}>
-              
+                <div className={styles.btns}>
+                    {button.map((item, index) => {
+                        return <button  className={styles.btn} key={index} onClick={()=>{setno(index)}}>{index}</button>
+                    })}
+                </div>
+
+                <div className={styles.details} style={{backgroundImage:`${detail.animeImg}`}}>
+
+
+
+
+                   <div className={styles.image}>
+                    <img className={styles.images} src={detail.animeImg} alt={detail.animeTitle} />
+                   </div>
+
+                   <div className={styles.displays}>
+                    <h2>{detail.animeTitle}</h2>
+                    <p>genres:{detail.genres}</p>
+                    <p>type:{detail.type}</p>
+                    <p>{detail.synopsis}</p>
+                    <p>releasedDate:{detail.releasedDate}</p>
+                    <p>status:{detail.status}</p>
+                   </div>
+
+
+                </div>
             </div>
         </div>
 

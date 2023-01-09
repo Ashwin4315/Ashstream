@@ -1,53 +1,19 @@
 import styles from "./Home.module.css";
 import Flex from "./Flex";
 import MoviesList from "./MovieList";
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 import Loader from "./Loader";
-import News from "./News";
+import Trend from "./Trend";
+import useGetanime from "../hooks/useGetanime";
 
 function Home() {
-    const [movies, setMovies] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
+    const [movies,isLoading,error] =useGetanime()
     const [page, setpage] = useState(2);
     const [newmovies, setnewMovies] = useState([]);
 
 
-
-    const fetchanime = useCallback(async () => {
-        setIsLoading(true);
-        setError(null);
-
-        try {
-            const options = {
-                method: 'GET',
-                headers: {
-                    'X-RapidAPI-Key': '57439d4706msh640c83a58183221p11da97jsn0e273c3e369e',
-                    'X-RapidAPI-Host': 'gogoanime2.p.rapidapi.com'
-                }
-            }
-
-            const response = await fetch('https://gogoanime2.p.rapidapi.com/popular?page=1', options);
-            if (!response.ok) {
-                throw new Error('Something went wrong!');
-            }
-
-            const data = await response.json();
-
-
-            setMovies(data);
-        } catch (error) {
-            setError(error.message);
-        }
-        setIsLoading(false);
-    }, []);
-
-    useEffect(() => {
-        console.log("heloo")
-        fetchanime();
-    }, [fetchanime]);
-    let content = <p>Found no movies.</p>;
-    let content2 = <p>Found no movies.</p>;
+    let content 
+    let content2 
 
     if (movies.length > 0) {
         content = <MoviesList movies={movies} />;
@@ -66,9 +32,6 @@ function Home() {
 
     const loadmore = async () => {
         setpage(page + 1)
-        console.log(page)
-
-
         try {
             const options = {
                 method: 'GET',
@@ -77,15 +40,11 @@ function Home() {
                     'X-RapidAPI-Host': 'gogoanime2.p.rapidapi.com'
                 }
             }
-
             const response = await fetch(`https://gogoanime2.p.rapidapi.com/popular?page=${page}`, options);
             if (!response.ok) {
                 throw new Error('Something went wrong!');
             }
-
             const data = await response.json();
-            console.log(data)
-
             setnewMovies(data);
 
         } catch (error) {
@@ -115,7 +74,7 @@ function Home() {
                 </div></div>
                 <div className={styles.right}>
                     <h1>Trending</h1>
-                    <News />
+                    <Trend />
                 </div>
             </div></>
     );

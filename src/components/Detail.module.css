@@ -3,3 +3,71 @@
 
     background-color: #222222;
 }
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    border-top: 1px solid aliceblue;
+}
+.btns{
+    display: flex;
+    background-color: black;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 20rem;
+    overflow: scroll;
+    width: 90%;
+    align-self: center;
+    overflow-x: hidden;
+    padding: 2rem  0.5rem;
+}
+
+.btn{
+    padding: 0.2rem 1rem;
+    background-color:  #E5374D;
+    color:aliceblue ;
+}
+.btns::-webkit-scrollbar {
+    width: 0.2em;
+  }
+   
+  .btns::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+  }
+   
+  .btns::-webkit-scrollbar-thumb {
+    background-color:#222222;
+  }
+
+  .details{
+    display: flex;
+    background-color: black;
+    width: 90%;
+    margin-top: 2rem;
+    
+}
+
+
+.images{
+    width: 10rem;
+    height: 13rem;
+  }
+  .displays{
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+   
+  }
+  .image{
+    z-index: 999;
+    
+
+  }

@@ -48,7 +48,7 @@
 
     .sm {
         width: 7rem;
-        height: 12rem;
+        height: 12rem;  
     }
 
     .content {
@@ -62,7 +62,7 @@
         align-items: flex-start;
     }
     .text h1{
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         font-weight: bold;
         color: #E5374D;
     }

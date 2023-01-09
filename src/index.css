@@ -71,10 +71,27 @@ body::-webkit-scrollbar-thumb {
 .licon{
 
   color: red;
-  width: 3rem;
-}
+    font-size: 3rem;
+    animation-duration: 3s;
+    animation-name: spinner;
+    animation-iteration-count: infinite;
+  }
+
 .loader{
   width: 100%;
   height: 100vh;
   background-color: #222222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@keyframes spinner {
+  from {
+   transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+
+  }
 }

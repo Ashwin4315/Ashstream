@@ -4,9 +4,9 @@ function Menu() {
     return (  
         <div className={styles.container}>
             <ul className={styles.links}>
-                <li>About</li>
                 <li>Sign in</li>
                 <li>Search</li>
+              
             </ul>
         </div>
     );

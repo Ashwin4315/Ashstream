@@ -1,7 +1,6 @@
 .box{
   width: 10rem;
-  height: 22rem;
-  overflow-y:scroll ;
+  height: auto;
   display: flex;
   flex-direction: column;
   background-color: #222222;
@@ -42,7 +41,7 @@ p{
 @media only screen and (max-width: 600px) {
   .box{
     width: 8rem;
-    height: 22rem;           ;
+    height: auto;           ;
     display: flex;
     flex-direction: column;
     background-color: #222222;
@@ -55,13 +54,13 @@ p{
 @media only screen and (max-width: 490px) {
   .box{
     width: 10rem;
-    height: 22rem;
+    height: auto;
     display: flex;
     flex-direction: column;
     background-color: #222222;
   }
   .img{
-    width: 8rem;
+    width: 10rem;
     height: auto;
   }
 }

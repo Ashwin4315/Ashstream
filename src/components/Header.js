@@ -23,7 +23,6 @@ const showmenu=()=>{
                 </div>
                 <div className={styles.links}>
                     <ul className={styles.list}>
-                        <li className={styles.page}><Link to="/About">About</Link></li>
                         <li className={styles.page}><Link to="/Signin">Signin</Link></li>
                         <li className={styles.page}><Link to="/Search">Search</Link></li>
                         <button className={styles.bar}  onClick={showmenu}><FontAwesomeIcon icon="fa-solid fa-bars" className={styles.icon} /></button>
